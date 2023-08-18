@@ -1,43 +1,34 @@
-@Library( 'brocode-library') _
+@Library('my-shared-library') _
 
-pipeline{ 
+pipeline{
 
     agent any
-    
-    parameters{
-        choice( name: 'action', choices: 'create\ndelete', decription: 'Choose create/destroy')
-    }
+
 
     stages{
-
-        when { expression { params.action =='create' }}
-        }
-
+         
         stage('Git Checkout'){
-
+                    when { expression {  params.action == 'create' } }
             steps{
-
-                script{
-                    
-                    gitCheckout(
+            gitCheckout(
                 branch: "main",
                 url: "https://github.com/uday898989/brocode.git"
             )
-                     
-                }
             }
         }
-        stage('Unit Test maven'){
-
-             when { expression { params.action =='create' }}
+         stage('Unit Test maven'){
+         
+         when { expression {  params.action == 'create' } }
 
             steps{
-
-                script{
-                    
-                    mvnTest()
-                     
-                }
+               script{
+                   
+                   mvnTest()
+               }
             }
         }
+         
+        
+    
     }
+}
