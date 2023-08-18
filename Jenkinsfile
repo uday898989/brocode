@@ -6,11 +6,11 @@ pipeline{
 
     stages{
 
-        stage('Gitchekout'){
+        stage('Git Checkout'){
 
             steps{
 
-                srript{
+                script{
                     
                     gitCheckout(
                         branch: "main"
