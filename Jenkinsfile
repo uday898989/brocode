@@ -3,8 +3,15 @@
 pipeline{ 
 
     agent any
+    
+    parameters{
+        choice( name: 'action', choices: 'create\ndelete', decription: 'Choose create/destroy')
+    }
 
     stages{
+
+        when { expression { params.action =='create' }}
+        }
 
         stage('Git Checkout'){
 
@@ -21,6 +28,8 @@ pipeline{
             }
         }
         stage('Unit Test maven'){
+
+             when { expression { params.action =='create' }}
 
             steps{
 
