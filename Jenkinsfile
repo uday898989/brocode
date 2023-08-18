@@ -12,10 +12,7 @@ pipeline{
 
                 script{
                     
-                    gitCheckout(
-                        branch: "main"
-                        url: 'https://github.com/uday898989/brocode.git'  
-                    )
+                    git branch: 'main' , url:'https://github.com/uday898989/brocode.git'
 
                      
                 }
