@@ -1,4 +1,6 @@
-pipeline{
+@Library('brocode-libraries') _
+
+pipeline{ 
 
     agent any
 
