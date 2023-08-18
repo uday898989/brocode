@@ -1,4 +1,4 @@
-@Library('brocode-libraries') _
+@Library( 'brocode-library') _
 
 pipeline{ 
 
@@ -12,8 +12,10 @@ pipeline{
 
                 script{
                     
-                    git branch: 'main' , url:'https://github.com/uday898989/brocode.git'
-
+                    gitCheckout(
+                branch: "main",
+                url: "https://github.com/uday898989/brocode.git"
+            )
                      
                 }
             }
