@@ -16,14 +16,13 @@ pipeline{
             )
             }
         }
-         stage('Unit Test maven'){
          
-         
+         stage('static code analysis: sonarqube'){
 
             steps{
                script{
                    
-                   mvnTest()
+                   statiCodeAnalysis()
                }
             }
         }
